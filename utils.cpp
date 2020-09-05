@@ -11,19 +11,19 @@ void printVector(std::vector<unsigned char> vec, bool convertToInt){
 	}
 }
 
-void printVectorf(std::vector<float> vec){
+void printVector(std::vector<float> vec){
 	for(int i = 0; i < vec.size(); i++){
 		std::cout << vec[i] << "\t";
 	}
 }
 
-void printVectori(std::vector<int> vec){
+void printVector(std::vector<int> vec){
 	for(int i = 0; i < vec.size(); i++){
 		std::cout << vec[i] << "\t";
 	}
 }
 
-void print2DVectori(std::vector<std::vector<int>> vec){
+void printVector(std::vector<std::vector<int>> vec){
 	for(int i = 0; i < vec.size(); i++){
 		for(int j = 0; j < vec[0].size(); j++){
 			std::cout << "" << vec[i][j] << "\t";
@@ -33,7 +33,7 @@ void print2DVectori(std::vector<std::vector<int>> vec){
 }
 
 
-void (std::vector<std::vector<float>> vec){
+void printVector(std::vector<std::vector<float>> vec){
 	for(int i = 0; i < vec.size(); i++){
 		for(int j = 0; j < vec[0].size(); j++){
 			std::cout << "" << vec[i][j] << "\t";
@@ -41,3 +41,8 @@ void (std::vector<std::vector<float>> vec){
 		std::cout << std::endl;
 	}
 }
+
+
+
+
+

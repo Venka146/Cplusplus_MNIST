@@ -1,6 +1,3 @@
-#ifndef math_h
-#define math_h
-
 #include <vector>
 #include <iostream>
 

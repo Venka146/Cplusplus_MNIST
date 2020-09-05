@@ -1,7 +1,7 @@
-#include <vector>
-#include <iostream>
 #include "math.cpp"
 #include "utils.cpp"
+#include <vector>
+#include <iostream>
 
 bool unitTest(){
 	std::vector<std::vector<float>> a (3, std::vector<float>(3));
@@ -31,12 +31,19 @@ bool unitTest(){
 	ans[2][0] = 29;
 	ans[2][1] = 35;
 	
-	std::cout << "a x b output";
-	std::vector<std::vector<float>> prod (3, std::vector<float>(2));
-	prod = matmul(a, b);
+	std::cout << "a x b output"  << std::endl;
+	std::vector<std::vector<float>> prod;
+	
+	try {
+		prod = matmul(a, b);
+	}
+	catch (std::exception &e) {
+		std::cout<<"Caught exception: "<<e.what()<<"\n";
+	}
+	
 	print2DVectorf(prod);
 	
-	std::cout << "Correct answer verified by SOCK!";
+	std::cout << "Correct answer verified by SOCK!" << std::endl;
 	print2DVectorf(ans);
 	
 	bool check = true;
@@ -52,7 +59,11 @@ bool unitTest(){
 
 
 int main(){
-	std::cout << unitTest();
+	bool result = unitTest();
+	std::cout << result;
 	return 0;
 }
+
+
+
 

@@ -1,19 +1,12 @@
 #include "mnist/mnist_reader_less.hpp"
 #include "mnist/mnist_utils.hpp"
+#include "math.cpp"
+#include "utils.cpp"
+#include "datapreprocess.cpp"
 #include <vector>
 #include <iostream>
 #include <typeinfo>
-#include "math.h"
-#include "utils.h"
-#include "datapreprocess.h"
-#include "unit_test.h"
 
-// TODO want to separate into multiple files
-// math.cpp -> stores matmul and other math functions
-// datapreprocess.cpp -> preprocessing of datasets
-// utils.cpp -> print functionality
-// unit_test.cpp -> write test cases for matmul, etc
-	// bool validMatmul() { // verfiy matmul works as expected }
 
 int main()
 {
