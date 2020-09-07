@@ -1,3 +1,4 @@
+#include "matrixmath.h"
 #include <math.h>
 #include <vector>
 #include <iostream>
@@ -77,12 +78,11 @@ std::vector<std::vector<float>> matmul(std::vector<std::vector<float>> vecA, flo
 }
 
 std::vector<std::vector<float>> softmax(std::vector<std::vector<float>> result) {
-	// TODO make this work for a (60,000 x 784) example (add for loop)
-	std::vector<std::vector<float>> pred_vec (result.size()), std::vector<float>(result[0].size());
+	std::vector<std::vector<float>> pred_vec (result.size(), std::vector<float>(result[0].size()));
 	std::vector<float> sum (result.size());
 	for(int i = 0; i < result.size(); i++){
 		for(int j = 0; j < result[0].size(); j++){
-			pred_vec[i][j] = std::exp(result[i][j]);
+			pred_vec[i][j] = exp(result[i][j]);
 			sum[i] += pred_vec[i][j];
 		}
 	}
@@ -92,12 +92,9 @@ std::vector<std::vector<float>> softmax(std::vector<std::vector<float>> result) 
 		}
 	}
 	return pred_vec;
-	// 1 x 10 -> [10 30 29 30 184 2 4 50 10 10]
-	// [10 30 29 30 184 2 4 50 10 10] -> [e^10/sum, e^30/sum, etc) where sum is the sum of all the e^x in the matrix]
 }
 
 std::vector<int> argmax(std::vector<std::vector<float>> result) {
-	// TODO (60,000 x 10)
 	std::vector<int> index (result.size());
 	float max;
 	for(int i = 0; i < result.size(); i++){
@@ -109,7 +106,6 @@ std::vector<int> argmax(std::vector<std::vector<float>> result) {
 			}
 		}
 	}
-	
 	return index;
 }
 
