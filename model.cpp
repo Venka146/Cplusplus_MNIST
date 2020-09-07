@@ -1,54 +1,35 @@
-#pragma
-#include "math.h"
 #include "model.h"
+#include "matrixmath.h"
 #include <time.h>
 #include <ctime>
 #include <cstdlib>
 
-// matrix of weights
-// matrix of biases
-// learning rate (float)
-// predict()
-// update_weights()
-// train(epochs)
-
-class NeuralNetwork{
-  public:
-	std::vector<std::vector<float>> weights;
-	std::vector<std::vector<float>> biases;
-	float learning_rate;
-	int input_size;
-	int num_classes;	
-	std::vector<float> predict(std::vector<std::vector<float>>);
-	void update_weights();
-	void train (int);
-	NeuralNetwork(float lr, int i_size, int n_classes) {
-		learning_rate = lr;
-		input_size = i_size;
-		num_classes = n_classes;
-		srand( (unsigned)time( NULL ) );
-		
-		std::vector<std::vector<float>> init_weights (i_size, std::vector<float>(n_classes));
-		for (int i = 0; i < i_size; i++){
-			for (int j = 0; j < n_classes; j++){
-				init_weights[i][j] = (float) rand()/RAND_MAX; // TODO verify between 0 and 1, not at 0 or 1
-			}
-		}
-		weights = init_weights;
-		
-		std::vector<std::vector<float>> init_biases (1, std::vector<float>(n_classes));
+NeuralNetwork::NeuralNetwork(float lr, int i_size, int n_classes) {
+	learning_rate = lr;
+	input_size = i_size;
+	num_classes = n_classes;
+	srand( (unsigned)time( NULL ) );
+	
+	std::vector<std::vector<float>> init_weights (i_size, std::vector<float>(n_classes));
+	for (int i = 0; i < i_size; i++){
 		for (int j = 0; j < n_classes; j++){
-				init_biases[j] = (float) rand()/RAND_MAX;
-			}
-		biases = init_biases;	
-		
-		// TODO initialize weights vector (i_size by n_classes matrix) with random numbers from 0 to 1)
-		// TODO initialize biases vector (1 by n_classes matrix) wirh random numbers from 0 to 1)
-		// one image:(1 x 784) matmul weights (784 x 10) -> (1 x 10) + bias (1 x 10) = (1 x 10)
-		// result (1x10) -> softmax -> (1 x 10) -> pick index with highest value -> that's the prediction
-		
-		// backprop -> TODO to be explained last
+			init_weights[i][j] = (float) rand()/RAND_MAX; // TODO verify between 0 and 1, not at 0 or 1
+		}
 	}
+	weights = init_weights;
+	
+	std::vector<std::vector<float>> init_biases (1, std::vector<float>(n_classes));
+	for (int j = 0; j < n_classes; j++){
+			init_biases[j] = (float) rand()/RAND_MAX;
+		}
+	biases = init_biases;	
+	
+	// TODO initialize weights vector (i_size by n_classes matrix) with random numbers from 0 to 1)
+	// TODO initialize biases vector (1 by n_classes matrix) wirh random numbers from 0 to 1)
+	// one image:(1 x 784) matmul weights (784 x 10) -> (1 x 10) + bias (1 x 10) = (1 x 10)
+	// result (1x10) -> softmax -> (1 x 10) -> pick index with highest value -> that's the prediction
+	
+	// backprop -> TODO to be explained last
 }
 
 std::vector<int> NeuralNetwork::predict(std::vector<std::vector<float>> dataset){

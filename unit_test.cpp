@@ -1,6 +1,8 @@
-#pragma
+#pragma once
+
 #include "matrixmath.h"
 #include "utils.h"
+
 #include <vector>
 #include <iostream>
 
@@ -42,10 +44,10 @@ bool unitTest(){
 		std::cout<<"Caught exception: "<<e.what()<<"\n";
 	}
 	
-	printVector(prod);
+	//printVector(prod);
 	
 	std::cout << "Correct answer verified by SOCK!" << std::endl;
-	printVector(ans);
+	//printVector(ans);
 	
 	bool check = true;
 	for(int i = 0; i < ans.size(); i++){

@@ -1,4 +1,3 @@
-#pragma
 #include "util.h"
 #include "model.h"
 #include <vector>
