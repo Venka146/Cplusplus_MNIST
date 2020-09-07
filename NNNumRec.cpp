@@ -1,11 +1,14 @@
-#include "mnist/mnist_reader_less.hpp"
-#include "mnist/mnist_utils.hpp"
-#include "math.cpp"
-#include "utils.cpp"
-#include "datapreprocess.cpp"
 #include <vector>
 #include <iostream>
 #include <typeinfo>
+
+#include "mnist/mnist_reader_less.hpp"
+#include "mnist/mnist_utils.hpp"
+#include "math.h"
+#include "utils.h"
+#include "datapreprocess.h"
+#include "model.h"
+
 
 
 int main()
@@ -19,7 +22,7 @@ int main()
 	auto test_data = dataset.test_images;
 	auto train_labels = dataset.training_labels;
 	auto test_labels  = dataset.test_labels;
-	//std::cout << typeid(train_data).name();
+	std::cout << typeid(train_labels).name();
 	//printVector(test_labels, true);
 	// << " " << dataset[0].size();
 	std::vector<std::vector<float>> p_train_data = prepare_dataset(train_data);
