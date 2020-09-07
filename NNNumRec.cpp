@@ -1,15 +1,15 @@
-#include <vector>
-#include <iostream>
-#include <typeinfo>
+#pragma
 
-#include "mnist/mnist_reader_less.hpp"
-#include "mnist/mnist_utils.hpp"
 #include "math.h"
 #include "utils.h"
 #include "datapreprocess.h"
 #include "model.h"
 
-
+#include <vector>
+#include <iostream>
+#include <typeinfo>
+#include "mnist/mnist_reader_less.hpp"
+#include "mnist/mnist_utils.hpp"
 
 int main()
 {

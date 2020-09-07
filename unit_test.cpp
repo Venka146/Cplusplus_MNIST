@@ -1,8 +1,8 @@
-#include <vector>
-#include <iostream>
-
+#pragma
 #include "math.h"
 #include "utils.h"
+#include <vector>
+#include <iostream>
 
 bool unitTest(){
 	std::vector<std::vector<float>> a (3, std::vector<float>(3));
@@ -64,3 +64,7 @@ int main(){
 	std::cout << result;
 	return 0;
 }
+
+
+
+
