@@ -1,5 +1,3 @@
-// Need a try catch when using.
-
 std::vector<std::vector<float>> matmul(std::vector<std::vector<float>> vecA, std::vector<std::vector<float>> vecB);
 
 std::vector<std::vector<float>> softmax(std::vector<std::vector<float>> result);

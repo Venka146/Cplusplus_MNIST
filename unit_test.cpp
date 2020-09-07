@@ -1,5 +1,5 @@
 #pragma
-#include "math.h"
+#include "matrixmath.h"
 #include "utils.h"
 #include <vector>
 #include <iostream>
@@ -42,10 +42,10 @@ bool unitTest(){
 		std::cout<<"Caught exception: "<<e.what()<<"\n";
 	}
 	
-	print2DVectorf(prod);
+	printVector(prod);
 	
 	std::cout << "Correct answer verified by SOCK!" << std::endl;
-	print2DVectorf(ans);
+	printVector(ans);
 	
 	bool check = true;
 	for(int i = 0; i < ans.size(); i++){

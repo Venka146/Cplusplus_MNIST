@@ -1,15 +1,15 @@
 #pragma
 
-#include "math.h"
+#include "matrixmath.h"
 #include "utils.h"
 #include "datapreprocess.h"
 #include "model.h"
+#include "mnist/mnist_reader_less.hpp"
+#include "mnist/mnist_utils.hpp"
 
 #include <vector>
 #include <iostream>
 #include <typeinfo>
-#include "mnist/mnist_reader_less.hpp"
-#include "mnist/mnist_utils.hpp"
 
 int main()
 {
@@ -26,7 +26,7 @@ int main()
 	//printVector(test_labels, true);
 	// << " " << dataset[0].size();
 	std::vector<std::vector<float>> p_train_data = prepare_dataset(train_data);
-	printVectorf(p_train_data[0]);
+	printVector(p_train_data[0]);
 	/*
 	std::vector<std::vector<float>> a (2, std::vector<float>(2));
 	a[0][0] = 1;

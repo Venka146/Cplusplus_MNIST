@@ -47,20 +47,15 @@ void printVector(std::vector<std::vector<float>> vec){
 }
 
 // TODO
-float accuracy(NeuralNetwork model, std::vector<std::vector<float>> data, ? labels) {
-	std::vector<int> pred;
-	float accuracy;
-	pred = NeuralNetwork::predict(data);
-	int num_correct = 0;
-	for(int i = 0; i < pred.size(); i++){
-		if(pred[i] == labels[i])
-			num_correct++;
-	}
-	accuracy = num_correct / pred.size();
-	return accuracy;
-}
-
-
-
-
-
+// float accuracy(NeuralNetwork model, std::vector<std::vector<float>> data, ? labels) {
+// 	std::vector<int> pred;
+// 	float accuracy;
+// 	pred = NeuralNetwork::predict(data);
+// 	int num_correct = 0;
+// 	for(int i = 0; i < pred.size(); i++){
+// 		if(pred[i] == labels[i])
+// 			num_correct++;
+// 	}
+// 	accuracy = num_correct / pred.size();
+// 	return accuracy;
+// }
