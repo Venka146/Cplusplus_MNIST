@@ -1,8 +1,9 @@
 #pragma
 #include "math.h"
+#include "model.h"
 #include <time.h>
-#include <ctime>
-#include <cstdlib>
+//#include <ctime>
+//#include <cstdlib>
 
 // matrix of weights
 // matrix of biases
@@ -25,19 +26,19 @@ class NeuralNetwork{
 		learning_rate = lr;
 		input_size = i_size;
 		num_classes = n_classes;
-		srand( (unsigned)time( NULL ) );
+		//srand( (unsigned)time( NULL ) );
 		
 		std::vector<std::vector<float>> init_weights (i_size, std::vector<float>(n_classes));
 		for (int i = 0; i < i_size; i++){
 			for (int j = 0; j < n_classes; j++){
-				init_weights[i][j] = (float) rand()/RAND_MAX; // TODO verify between 0 and 1, not at 0 or 1
+				init_weights[i][j] = .5; //(float) rand()/RAND_MAX; // TODO verify between 0 and 1, not at 0 or 1
 			}
 		}
 		weights = init_weights;
 		
 		std::vector<std::vector<float>> init_biases (1, std::vector<float>(n_classes));
 		for (int j = 0; j < n_classes; j++){
-				init_biases[j] = (float) rand()/RAND_MAX;
+				init_biases[j] = .5; //(float) rand()/RAND_MAX;
 			}
 		biases = init_biases;	
 		

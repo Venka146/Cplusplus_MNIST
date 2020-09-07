@@ -1,4 +1,5 @@
 // Need a try catch when using.
+#include <vector>
 
 std::vector<std::vector<float>> matmul(std::vector<std::vector<float>> vecA, std::vector<std::vector<float>> vecB);
 
