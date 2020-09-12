@@ -14,6 +14,7 @@
 
 int main()
 {
+	/*
 	// 1) learn how to use the vector datatype in C++ -- Done
 	// 2) learn the back propogation technique (DL)
 	// 3) Apply your knowledge and get a NN working!
@@ -54,6 +55,7 @@ int main()
 	*/	
 	
 	//printVector(train_data, false);
+	
 	std::cout << "Success!";
 	return 0;
 }

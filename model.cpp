@@ -1,3 +1,4 @@
+#pragma once
 #include "model.h"
 #include "matrixmath.h"
 #include <time.h>
