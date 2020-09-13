@@ -1,4 +1,5 @@
 #pragma once
+
 #include "model.hpp"
 #include <vector>
 #include <iostream>
@@ -51,8 +52,9 @@ float accuracy(NeuralNetwork model, std::vector<std::vector<float>> data, std::v
  	pred = model.predict(data);
  	int num_correct = 0;
  	for(int i = 0; i < pred.size(); i++){
- 		if(pred[i] == labels[i])
+ 		if(pred[i] == labels[i]) {
  			num_correct++;
+		}
  	}
  	accuracy = float(num_correct) / pred.size();
  	return accuracy;

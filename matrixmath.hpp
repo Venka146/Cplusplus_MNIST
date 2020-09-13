@@ -95,9 +95,9 @@ std::vector<std::vector<float>> softmax(std::vector<std::vector<float>> result) 
 
 std::vector<int> argmax(std::vector<std::vector<float>> result) {
 	std::vector<int> index (result.size());
-	float max = -1;
+	float max;
 	for(int i = 0; i < result.size(); i++){
-		max = -1;
+		max = -10000000;
 		for(int j = 0; j < result[0].size(); j++){
 			if(max < result[i][j]){
 				max = result[i][j];
@@ -108,3 +108,12 @@ std::vector<int> argmax(std::vector<std::vector<float>> result) {
 	return index;
 }
 
+std::vector<std::vector<float>> transpose(std::vector<std::vector<float>> mat) {
+	std::vector<std::vector<float>> t (mat[0].size(), std::vector<float>(mat.size()));
+	for (int i = 0; i < mat.size(); i++) {
+		for (int j = 0; j < mat[0].size(); j++) {
+			t[j][i] = mat[i][j];
+		}
+	}
+	return t;
+}
