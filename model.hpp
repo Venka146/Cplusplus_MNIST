@@ -71,4 +71,20 @@ void NeuralNetwork::update_weights() {
 
 void NeuralNetwork::train(int epochs, std::vector<std::vector<float>> dataset) {
 	// TODO how to shuffle a 2D matrix (know how to do this)
+	//Below is for a shuffle
+	//Not sure if srand here is necessary?
+	//srand( (unsigned)time( NULL ) );
+	auto random = (float) rand()/RAND_MAX;
+	for (int i = dataset.size() - 1; i > 0; i--) {
+        for (int j = dataset[i].size() - 1; j > 0; j--) {
+			// nextInt is from java what is c++ equiv?
+            int m = random.nextInt(i + 1);
+            int n = random.nextInt(j + 1);
+
+            auto temp = dataset[i][j];
+            dataset[i][j] = dataset[m][n];
+            dataset[m][n] = temp;
+        }
+    }
+
 }
