@@ -1,9 +1,24 @@
 #pragma once
-#include "model.h"
-#include "matrixmath.h"
+
+#include "matrixmath.hpp"
 #include <time.h>
 #include <ctime>
 #include <cstdlib>
+
+class NeuralNetwork{
+  private:
+	int input_size;
+	int num_classes;
+  	float learning_rate;
+	std::vector<std::vector<float>> weights;
+	std::vector<std::vector<float>> biases;
+
+  public:
+	NeuralNetwork(float lr, int i_size, int n_classes);
+	std::vector<int> predict(std::vector<std::vector<float>> dataset);
+	void update_weights();
+	void train(int epochs, std::vector<std::vector<float>> dataset);
+};
 
 NeuralNetwork::NeuralNetwork(float lr, int i_size, int n_classes) {
 	learning_rate = lr;
@@ -21,8 +36,8 @@ NeuralNetwork::NeuralNetwork(float lr, int i_size, int n_classes) {
 	
 	std::vector<std::vector<float>> init_biases (1, std::vector<float>(n_classes));
 	for (int j = 0; j < n_classes; j++){
-			init_biases[j] = (float) rand()/RAND_MAX;
-		}
+			init_biases[0][j] = (float) rand()/RAND_MAX;
+	}
 	biases = init_biases;	
 	
 	// TODO initialize weights vector (i_size by n_classes matrix) with random numbers from 0 to 1)
@@ -39,9 +54,13 @@ std::vector<int> NeuralNetwork::predict(std::vector<std::vector<float>> dataset)
 	std::vector<std::vector<float>> prod;
 	std::vector<std::vector<float>> sum;
 	std::vector<std::vector<float>> soft;
+	std::cout << "start matmul" << std::endl;
 	prod = matmul(dataset, weights); // (60,000 x 784) x (784 x 10) -> (60,000 x 10)
-	sum = matadd(prod, biases); 
-	soft = softmax(sum);
+	// sum = matadd(prod, biases);
+	// TODO support bias
+	std::cout << "start softmax" << std::endl;
+	soft = softmax(prod);
+	std::cout << "start argmax" << std::endl;
 	ans = argmax(soft);
 	return ans;
 }

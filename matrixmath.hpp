@@ -1,4 +1,3 @@
-#include "matrixmath.h"
 #include <math.h>
 #include <vector>
 #include <iostream>
@@ -13,7 +12,7 @@ std::vector<std::vector<float>> matmul(std::vector<std::vector<float>> vecA, std
 	
 	std::vector<std::vector<float>> prod (vecA.size(), std::vector<float>(vecB[0].size()));
 	for(float r = 0; r < vecA.size(); r++){
-		for(float c = 0; c < vecA.size(); c++){
+		for(float c = 0; c < vecB[0].size(); c++){
 			prod[r][c] = 0;
 		}
 	}
@@ -96,7 +95,7 @@ std::vector<std::vector<float>> softmax(std::vector<std::vector<float>> result) 
 
 std::vector<int> argmax(std::vector<std::vector<float>> result) {
 	std::vector<int> index (result.size());
-	float max;
+	float max = -1;
 	for(int i = 0; i < result.size(); i++){
 		max = -1;
 		for(int j = 0; j < result[0].size(); j++){

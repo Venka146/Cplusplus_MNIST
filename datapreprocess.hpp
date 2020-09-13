@@ -1,7 +1,8 @@
-#include "datapreprocess.h"
+#pragma once
+
 #include <vector>
 
-std::vector<std::vector<float>> prepare_dataset(std::vector<std::vector<unsigned char>> &vec){
+std::vector<std::vector<float>> prepare_dataset(std::vector<std::vector<uint8_t>> vec){
 	std::vector<std::vector<float>> processed_dataset;
 	for (int i = 0; i < vec.size(); i++) {
 		std::vector<float> vect;

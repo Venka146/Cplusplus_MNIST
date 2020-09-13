@@ -1,5 +1,5 @@
-#include "util.h"
-#include "model.h"
+#pragma once
+#include "model.hpp"
 #include <vector>
 #include <iostream>
 
@@ -45,16 +45,15 @@ void printVector(std::vector<std::vector<float>> vec){
 	}
 }
 
-// TODO
-// float accuracy(NeuralNetwork model, std::vector<std::vector<float>> data, ? labels) {
-// 	std::vector<int> pred;
-// 	float accuracy;
-// 	pred = NeuralNetwork::predict(data);
-// 	int num_correct = 0;
-// 	for(int i = 0; i < pred.size(); i++){
-// 		if(pred[i] == labels[i])
-// 			num_correct++;
-// 	}
-// 	accuracy = num_correct / pred.size();
-// 	return accuracy;
-// }
+float accuracy(NeuralNetwork model, std::vector<std::vector<float>> data, std::vector<uint8_t> labels) {
+ 	std::vector<int> pred;
+ 	float accuracy;
+ 	pred = model.predict(data);
+ 	int num_correct = 0;
+ 	for(int i = 0; i < pred.size(); i++){
+ 		if(pred[i] == labels[i])
+ 			num_correct++;
+ 	}
+ 	accuracy = float(num_correct) / pred.size();
+ 	return accuracy;
+}

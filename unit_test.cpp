@@ -1,7 +1,7 @@
 #pragma once
 
-#include "matrixmath.h"
-#include "utils.h"
+#include "matrixmath.hpp"
+#include "utils.hpp"
 
 #include <vector>
 #include <iostream>
