@@ -33,37 +33,33 @@ bool unitTest(){
 	ans[1][1] = 48;
 	ans[2][0] = 29;
 	ans[2][1] = 35;
-	
-	std::cout << "a x b output"  << std::endl;
-	std::vector<std::vector<float>> prod;
-	
-	try {
-		prod = matmul(a, b);
-	}
-	catch (std::exception &e) {
-		std::cout<<"Caught exception: "<<e.what()<<"\n";
-	}
-	
-	//printVector(prod);
-	
-	std::cout << "Correct answer verified by SOCK!" << std::endl;
-	//printVector(ans);
-	
-	bool check = true;
-	for(int i = 0; i < ans.size(); i++){
-		for(int j = 0; j < ans[0].size(); j++){
-			if(prod[i][j] != ans[i][j]){
-				check = false;
-			}
-		}
-	}		
-	return check;
+
+
 }
 
-
 int main(){
-	bool result = unitTest();
-	std::cout << result;
+	std::vector<std::vector<float>> a (3, std::vector<float>(3));
+	a[0][0] = 1;
+	a[0][1] = 2;
+	a[0][2] = 3;
+	a[1][0] = 3;
+	a[1][1] = 4;
+	a[1][2] = 5;
+	a[2][0] = 6;
+	a[2][1] = 7;
+	a[2][2] = 8;
+
+	auto soft = softmax(a);
+	std::vector<float> sums (3);
+	for (int i = 0; i < a.size(); i++){
+		for (int j = 0; j < a[0].size(); j++) {
+			sums[i] += soft[i][j];
+		}
+	}
+
+	printVector(soft);
+	printVector(sums);
+
 	return 0;
 }
 

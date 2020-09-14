@@ -47,15 +47,13 @@ void printVector(std::vector<std::vector<float>> vec){
 }
 
 float accuracy(NeuralNetwork model, std::vector<std::vector<float>> data, std::vector<uint8_t> labels) {
- 	std::vector<int> pred;
- 	float accuracy;
- 	pred = model.predict(data);
+ 	auto pred = model.predict(data);
  	int num_correct = 0;
  	for(int i = 0; i < pred.size(); i++){
- 		if(pred[i] == labels[i]) {
+ 		if(pred[i] == unsigned(labels[i])) {
  			num_correct++;
 		}
  	}
- 	accuracy = float(num_correct) / pred.size();
+ 	float accuracy = float(num_correct) / pred.size();
  	return accuracy;
 }
